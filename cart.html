@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cart - E-AXLE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav">
+      <a class="logo" href="index.html">E-AXLE</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="sell.html">Sell</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <input class="nav-search" type="search" placeholder="Search products...">
+        <a class="cart-link" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+        <a class="account-link" href="account.html">Account</a>
+      </div>
+    </div>
+    <p class="tag">Your shopping cart</p>
+  </header>
+
+  <main class="container">
+    <aside class="cart">
+      <h2>Your Cart</h2>
+      <div id="cartItems" class="cart-items">No items yet.</div>
+      <div class="cart-footer">
+        <div class="total">Total: ₹<span id="cartTotal">0</span></div>
+        <button id="placeOrderBtn" class="btn primary" disabled>Place Order</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Order modal reused -->
+  <div id="orderModal" class="modal hidden">
+      <div class="modal-content">
+          <h3>Schedule Your Order</h3>
+          <label for="deliveryDate">Delivery Date</label>
+          <input id="deliveryDate" type="date">
+          <label for="deliveryTime">Delivery Time</label>
+          <input id="deliveryTime" type="time">
+          <div class="modal-actions">
+              <button id="confirmOrderBtn" class="btn primary">Confirm Order</button>
+              <button id="cancelOrderBtn" class="btn">Cancel</button>
+          </div>
+      </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
