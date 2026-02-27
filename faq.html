@@ -31,10 +31,35 @@
   <main class="container">
     <section class="products">
       <h2>FAQ</h2>
-      <p>Q: How do I place an order? A: Add products to cart then schedule delivery using Place Order.</p>
+      <div id="qaList">
+        <p>Q: How do I place an order? A: Add products to cart then schedule delivery using Place Order.</p>
+      </div>
+      <h3>Ask a Question</h3>
+      <form id="qaForm">
+        <textarea id="questionInput" placeholder="Your question" required style="width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid #ddd"></textarea>
+        <textarea id="answerInput" placeholder="Your answer" required style="width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid #ddd"></textarea>
+        <button class="btn primary" type="submit">Add Q&A</button>
+      </form>
     </section>
   </main>
 
   <script src="app.js"></script>
+  <script>
+    const qaForm = document.getElementById('qaForm');
+    const qaList = document.getElementById('qaList');
+    if(qaForm && qaList){
+      qaForm.addEventListener('submit', e=>{
+        e.preventDefault();
+        const q = document.getElementById('questionInput').value.trim();
+        const a = document.getElementById('answerInput').value.trim();
+        if(q && a){
+          const p = document.createElement('p');
+          p.textContent = `Q: ${q} A: ${a}`;
+          qaList.appendChild(p);
+          qaForm.reset();
+        }
+      });
+    }
+  </script>
 </body>
 </html>
